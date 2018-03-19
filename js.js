@@ -20,7 +20,6 @@ $(document).ready(function(){
     });
     /* Create new Item */
     $(".crud-submit").click(function(){
-
         var chantier = $("#create-item").find("input[name='chantier']").val();
         var poste = $("#create-item").find("input[name='poste']").val();
         var jan = $("#create-item").find("input[name='jan']").val();
@@ -35,7 +34,6 @@ $(document).ready(function(){
         var oct = $("#create-item").find("input[name='oct']").val();
         var nov = $("#create-item").find("input[name='nov']").val();
         var decembre = $("#create-item").find("input[name='decembre']").val();
-
             $.ajax({
                 dataType: 'json',
                 type:'POST',
@@ -45,10 +43,32 @@ $(document).ready(function(){
             $(".modal").modal('hide');
             toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
         });
-
-
-
     });
+    $(".crud-submit-edit").click(function(){
+      var id = $("#edit-item").find("input[name='liason_id']").val();
+        var chantier = $("#edit-item").find("input[name='chantier']").val();
+        var poste = $("#edit-item").find("input[name='poste']").val();
+        var jan = $("#edit-item").find("input[name='jan']").val();
+        var fev = $("#edit-item").find("input[name='fev']").val();
+        var mar = $("#edit-item").find("input[name='mar']").val();
+        var avr = $("#edit-item").find("input[name='avr']").val();
+        var mai = $("#edit-item").find("input[name='mai']").val();
+        var juin = $("#edit-item").find("input[name='juin']").val();
+        var juil = $("#edit-item").find("input[name='juil']").val();
+        var aout = $("#edit-item").find("input[name='aout']").val();
+        var sept = $("#edit-item").find("input[name='sept']").val();
+        var oct = $("#edit-item").find("input[name='oct']").val();
+        var nov = $("#edit-item").find("input[name='nov']").val();
+        var decembre = $("#edit-item").find("input[name='decembre']").val();
+
+            $.ajax({
+                dataType: 'json',
+                type:'POST',
+                url: url + 'edit.php',
+                data:{id:id, chantier:chantier, poste:poste, jan:jan, fev:fev, mar:mar, avr:avr, mai:mai, juin:juin, juil:juil, aout:aout, sept:sept, oct:oct, nov:nov, decembre:decembre}
+            })
+    });
+
     $("body").on("click",".remove-item",function(){
       var id =$(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td")
       .prev("td").prev("td").prev("td").prev("td").text();

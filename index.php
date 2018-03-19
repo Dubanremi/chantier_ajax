@@ -192,9 +192,12 @@ $i=1;
 
 
       <div class="modal-body">
-      <form data-toggle="validator" action="api/update.php" method="put">
+
       <input type="hidden" name="id" class="edit-id">
       <div class="form-group">
+<label class="control-label" for="title">liaison_id</label>
+<input type="text" name="liason_id" class="form-control" data-error="Please enter liasons_id." required />
+<div class="help-block with-errors"></div>
 <label class="control-label" for="title">Chantier</label>
 <input type="text" name="chantier" class="form-control" data-error="Please enter chantier." required />
 <div class="help-block with-errors"></div>
